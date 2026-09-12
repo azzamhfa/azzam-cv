@@ -1,69 +1,149 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useEffect, useState } from "react";
+import { hobbies } from "./components/portfolio-data";
+import { SiteFooter, SiteHeader } from "./components/SiteChrome";
+import {
+  AuditSlide,
+  BasicsSlide,
+  CareerSlide,
+  ClassifiedSlide,
+  HobbySlide,
+  LockSlide,
+  ReviewSlide,
+  FamilySlide,
+  SocialSlide,
+  DomesticSlide,
+  ReligionSlide,
+} from "./components/PortfolioSlides";
+
+export default function StrangerCard() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  // Default totalSlides adalah 6 (Index 0 sampai 5: Basics, Career, Hobby, Audit, Review, Lock)
+  const [totalSlides, setTotalSlides] = useState(5);
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [isUnlocking, setIsUnlocking] = useState(false);
+  const [activeHobby, setActiveHobby] = useState(0);
+  const [activeAssetIndex, setActiveAssetIndex] = useState(0);
+
+  const nextSlide = () => {
+    if (currentSlide < totalSlides - 1) setCurrentSlide((slide) => slide + 1);
+  };
+
+  const prevSlide = () => {
+    if (currentSlide > 0) setCurrentSlide((slide) => slide - 1);
+  };
+
+  const handleUnlock = async () => {
+    setIsUnlocking(true);
+    try {
+      await fetch("my-api-point", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "secret_pages_opened",
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch {
+      // Unlock tetap berjalan meskipun notifikasi API gagal
+    }
+
+    window.setTimeout(() => {
+      setIsUnlocked(true);
+      setTotalSlides(11); // Total slide bertambah menjadi 12 (0 sampai 11)
+      setCurrentSlide(5); // Pindah otomatis ke halaman Classified 1
+      setIsUnlocking(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        setCurrentSlide((slide) =>
+          slide < totalSlides - 1 ? slide + 1 : slide,
+        );
+      }
+      if (event.key === "ArrowLeft") {
+        setCurrentSlide((slide) => (slide > 0 ? slide - 1 : slide));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [totalSlides]);
+
+  useEffect(() => {
+    if (currentSlide !== 2) return; // Index HobbySlide sekarang adalah 2
+    const interval = window.setInterval(() => {
+      setActiveAssetIndex(
+        (index) => (index + 1) % hobbies[activeHobby].assets.length,
+      );
+    }, 3500);
+    return () => window.clearInterval(interval);
+  }, [currentSlide, activeHobby]);
+
+  const background = {
+    backgroundColor: "#F7F2EA",
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main
+      style={background}
+      className="h-[100dvh] w-full text-[#1F1A17] font-sans flex flex-col relative border-4 md:border-8 border-[#2C241B] overflow-hidden rounded-[28px]"
+    >
+      <SiteHeader currentSlide={currentSlide} totalSlides={totalSlides} />
+
+      <div className="flex-1 relative w-full overflow-hidden">
+        {/* Slide Publik (Index 0 - 5) */}
+        <BasicsSlide active={currentSlide === 0} />
+        <CareerSlide active={currentSlide === 1} />
+        <HobbySlide
+          active={currentSlide === 2}
+          hobbyIndex={activeHobby}
+          assetIndex={activeAssetIndex}
+          onAssetChange={setActiveAssetIndex}
+          onHobbyChange={(index) => {
+            setActiveHobby(index);
+            setActiveAssetIndex(0);
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <AuditSlide active={currentSlide === 3} />
+        <LockSlide
+          active={currentSlide === 4}
+          unlocked={isUnlocked}
+          unlocking={isUnlocking}
+          onUnlock={handleUnlock}
+        />
+
+        {/* Slide Rahasia (Hanya dipasang jika isUnlocked === true) */}
+        {isUnlocked && (
+          <>
+            <ClassifiedSlide active={currentSlide === 5} number={1} />
+            <ReligionSlide active={currentSlide === 6} number={2} />
+            <FamilySlide active={currentSlide === 7} number={3} />
+            <DomesticSlide active={currentSlide === 8} number={4} />
+            <SocialSlide active={currentSlide === 9} number={5} />
+            <ReviewSlide active={currentSlide === 10} number={6} />
+            <ClassifiedSlide active={currentSlide === 11} number={7} />
+          </>
+        )}
+      </div>
+
+      <SiteFooter
+        currentSlide={currentSlide}
+        totalSlides={totalSlides}
+        unlocked={isUnlocked}
+        onPrevious={prevSlide}
+        onNext={nextSlide}
+        onSelect={setCurrentSlide}
+      />
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html:
+            ".hide-scrollbar::-webkit-scrollbar{display:none}.hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}",
+        }}
+      />
+    </main>
   );
 }

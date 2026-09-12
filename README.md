@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Unlock email notifications
+
+The unlock notification uses a server-side route at `/api/notify` and the [Resend](https://resend.com) email API. No email SDK or API key is exposed to the browser.
+
+1. Create a Resend account and generate an API key.
+2. Verify the sending domain, then copy `.env.example` to `.env.local`.
+3. Set `RESEND_API_KEY`, `NOTIFICATION_TO_EMAIL`, and `NOTIFICATION_FROM_EMAIL` in `.env.local`.
+4. Add the same three variables in the Vercel project under **Settings > Environment Variables**.
+5. Redeploy the project. Keep `.env.local` out of git and never prefix these variables with `NEXT_PUBLIC_`.
+
+`NOTIFICATION_FROM_EMAIL` must use a verified Resend domain. During local testing, Resend's onboarding sender can be used according to its current account restrictions.
