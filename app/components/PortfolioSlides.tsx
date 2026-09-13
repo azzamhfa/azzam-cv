@@ -141,7 +141,7 @@ export function BasicsSlide({ active }: SlideProps) {
 
         <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-8">
           {/* Carousel Foto Profil (35% Width) */}
-          <div className="w-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px] min-h-[320px] md:min-h-[380px]">
+          <div className="w-full h-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px] min-h-[300px] md:min-h-[300px]">
             {/* Header Mini Carousel & Dots Navigation */}
             <div className="flex items-center justify-between mb-3 border-b-2 border-[#D4C4A8] pb-2 shrink-0">
               <div className="flex items-center gap-2">
@@ -868,7 +868,7 @@ export function ClassifiedSlide({
 
 function SectionTitle({ number, title }: { number: string; title: string }) {
   return (
-    <div className="flex items-end border-b-4 border-[#2C241B] pb-4 mb-6">
+    <div className="flex items-end border-b-4 border-[#2C241B] pt-4 pb-4 mb-2">
       <div>
         <p className="text-[#8C5A2A] font-bold tracking-widest uppercase text-xs mb-1">
           Section {number}
@@ -992,7 +992,7 @@ export function FamilySlide({ active }: { active: boolean }) {
         {/* 2. Main Layout dengan min-h-0 agar flex-1 bekerja optimal di mobile */}
         <div className="flex-1 flex flex-col md:flex-row gap-3 md:gap-6 min-h-0 overflow-hidden">
           {/* KIRI / ATAS: Carousel Foto (Dikunci tingginya di Mobile, flex-1 di Desktop) */}
-          <div className="w-full md:w-5/12 h-[300px] md:h-auto md:flex-1 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-3 md:p-4 flex flex-col overflow-hidden relative rounded-[20px] shrink-0">
+          <div className="w-full md:w-5/12 h-[400px] md:h-auto md:flex-1 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-3 md:p-4 flex flex-col overflow-hidden relative rounded-[20px] shrink-0">
             <div className="flex items-center justify-between mb-2 border-b-2 border-[#D4C4A8] pb-1.5 shrink-0">
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#8C5A2A] rounded-full"></div>
