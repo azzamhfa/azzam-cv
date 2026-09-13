@@ -118,13 +118,13 @@ export default function StrangerCard() {
         {/* Slide Rahasia (Hanya dipasang jika isUnlocked === true) */}
         {isUnlocked && (
           <>
-            <ClassifiedSlide active={currentSlide === 5} number={1} />
-            <ReligionSlide active={currentSlide === 6} number={2} />
-            <FamilySlide active={currentSlide === 7} number={3} />
-            <DomesticSlide active={currentSlide === 8} number={4} />
-            <SocialSlide active={currentSlide === 9} number={5} />
-            <ReviewSlide active={currentSlide === 10} number={6} />
-            <ClassifiedSlide active={currentSlide === 11} number={7} />
+            <ClassifiedSlide {...({ active: currentSlide === 5, number: 1 } as any)} />
+            <ReligionSlide {...({ active: currentSlide === 6, number: 2 } as any)} />
+            <FamilySlide {...({ active: currentSlide === 7, number: 3 } as any)} />
+            <DomesticSlide {...({ active: currentSlide === 8, number: 4 } as any)} />
+            <SocialSlide {...({ active: currentSlide === 9, number: 5 } as any)} />
+            <ReviewSlide {...({ active: currentSlide === 10, number: 6 } as any)} />
+            <ClassifiedSlide {...({ active: currentSlide === 11, number: 7 } as any)} />
           </>
         )}
       </div>
