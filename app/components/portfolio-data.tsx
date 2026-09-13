@@ -26,12 +26,12 @@ export const hobbies: Hobby[] = [
       {
         name: "Swim Session",
         image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548358558276648970/IMG_20260912_224345_406.jpg?ex=6aa6c4c7&is=6aa57347&hm=8418a58b260616f12e9d32e9567a68aa0e32461ba7811c78fde248a561f7aa6a&=&format=webp&width=576&height=1024",
+          "/images/swim.jpg",
       },
       {
         name: "Jogging Route",
         image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548348546263158875/IMG_20251130_072915.jpg?ex=6aa6bb74&is=6aa569f4&hm=5df99336d856b43fbe95b77b80e9effbbcfe924d4b0401a2bfa159ec5c13e47e&=&format=webp&width=216&height=384",
+          "/images/jog.jpg",
       },
     ],
   },
@@ -57,18 +57,15 @@ export const hobbies: Hobby[] = [
     assets: [
       {
         name: "Vinyl Collection",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1547979022204412024/IMG_20260911_213543.jpg?ex=6aa5634e&is=6aa411ce&hm=d5ce72a4fe9cea4b4c7d55bf25a2789d64fa920687590d40686c8b0889ae8e52&=&format=webp&width=767&height=1024",
+        image: "/images/idol.jpg",
       },
       {
         name: "Listening Setup",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548325768097038376/IMG_20260912_203337.jpg?ex=6aa6a63d&is=6aa554bd&hm=ce05b0de1a5a8b41bb705381a2ffc2cacef3bcffaa9c529615794310eb5d9c79&=&format=webp&width=576&height=1024",
+        image: "/images/music1.jpg",
       },
       {
         name: "Music Finds",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548324826543030293/IMG_20260905_202835.jpg?ex=6aa6a55d&is=6aa553dd&hm=1a71f0f01e5b8caf2a16cc2ce60ad8f15bcd8a1783cd72ad8c1150924146fb69&=&format=webp&width=461&height=1024",
+        image: "/images/music2.jpg",
       },
     ],
   },
@@ -84,13 +81,11 @@ export const hobbies: Hobby[] = [
     assets: [
       {
         name: "Strategy Setup",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548342131762921563/IMG_20260912_213759.jpg?ex=6aa6b57b&is=6aa563fb&hm=ddfd7ce2ac0fec93ce459fbbc7888e6e80a6ae7f00b1de99b9f6954e2474fad6&=&format=webp&width=461&height=1024",
+        image: "/images/fm.jpg",
       },
       {
         name: "Match Moment",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548358558809071647/IMG_20260912_224252_984.jpg?ex=6aa6c4c7&is=6aa57347&hm=aa9e36b1cff99d0b6be5b64424530e5715fd6e8270cf83025681166eb2c155b7&=&format=webp&width=576&height=1024",
+        image: "/images/game.jpg",
       },
     ],
   },

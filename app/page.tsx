@@ -37,7 +37,7 @@ export default function StrangerCard() {
   const handleUnlock = async () => {
     setIsUnlocking(true);
     try {
-      await fetch("my-api-point", {
+      await fetch("api/notify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -51,7 +51,7 @@ export default function StrangerCard() {
 
     window.setTimeout(() => {
       setIsUnlocked(true);
-      setTotalSlides(11); // Total slide bertambah menjadi 12 (0 sampai 11)
+      setTotalSlides(12); // Total slide bertambah menjadi 12 (0 sampai 11)
       setCurrentSlide(5); // Pindah otomatis ke halaman Classified 1
       setIsUnlocking(false);
     }, 1000);

@@ -108,23 +108,19 @@ export function BasicsSlide({ active }: SlideProps) {
   const profileAssets = [
     {
       name: "me",
-      image:
-        "https://media.discordapp.net/attachments/738389915401977926/1547969604398092348/IMG_20260108_175342.jpg?ex=6aa55a89&is=6aa40909&hm=5d72c86b5b800eb58910c964e8e0bd663ca4ebd5ed48293e0da3ff2c77fb8742&=&format=webp&width=2048&height=1153",
+      image: "/images/me.jpg",
     },
     {
       name: "casual",
-      image:
-        "https://media.discordapp.net/attachments/738389915401977926/1548290469186764810/IMG-20251023-WA0011.jpg?ex=6aa6855d&is=6aa533dd&hm=b57f12ada60050b6a4fd9659f3a48302d73329c195b50485474594fff950e801&=&format=webp&width=1536&height=1024",
+      image: "/images/me2.jpg",
     },
     {
       name: "casual2",
-      image:
-        "https://instagram.fjog3-1.fna.fbcdn.net/v/t51.82787-15/655061400_18106107952896679_8994867290251669088_n.webp?_nc_cat=106&ig_cache_key=MjkwOTgyOTk2MzUzNDE1NjM4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=u4ymZ7gCckwQ7kNvwEtCRDw&_nc_oc=AdpvgjUoUfQ_Z_Gf8C8EbqVPZkI3Fi9MyuN1cCSqAN-LL1yUBEi_47JgAW3N5-pFLSA&_nc_zt=23&_nc_ht=instagram.fjog3-1.fna&_nc_gid=ZFb_KGfcNnquf_9-5AVt2Q&_nc_ss=7aaaf&oh=00_AQLuaAE3WjGQhcdoj9t4Wf91oA9qe3SQz7MuPOKkMViP7A&oe=6AAAF5D7",
+      image: "/images/me3.jpg",
     },
     {
       name: "casual3",
-      image:
-        "    https://media.discordapp.net/attachments/738389915401977926/1548325051202273361/IMG_20260519_094742.jpg?ex=6aa6a592&is=6aa55412&hm=3fa316b4fd8d1044e303255cce75649abda0a32dc2c59db10aae81eeafe7a872&=&format=webp&width=576&height=1024",
+      image: "/images/me1.jpg",
     },
   ];
 
@@ -141,7 +137,7 @@ export function BasicsSlide({ active }: SlideProps) {
     <SlideFrame active={active}>
       {/* Container utama pas 1 layar tanpa scroll vertikal */}
       <div className="h-full w-full max-w-5/7 mx-auto flex flex-col justify-center px-6 py-4 md:py-6">
-        <SectionTitle number="01" title="A little about me" />
+        <SectionTitle number="01" title="General Info" />
 
         <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-8">
           {/* Carousel Foto Profil (35% Width) */}
@@ -304,10 +300,7 @@ export function CareerSlide({ active }: SlideProps) {
                 borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
               }}
             >
-              <Photo
-                image="              https://media.discordapp.net/attachments/738389915401977926/1547967685269266472/IMG_20260323_065855.jpg?ex=6aa558c0&is=6aa40740&hm=e909d23b5ff066127852038e6c20836a2bf6627c95c2f5e16ef6461c71e6c352&=&format=webp&width=576&height=1024"
-                label="work mode"
-              />
+              <Photo image="/images/work1.jpg" label="work mode" />
             </div>
 
             <div
@@ -316,10 +309,7 @@ export function CareerSlide({ active }: SlideProps) {
                 borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
               }}
             >
-              <Photo
-                image="https://media.discordapp.net/attachments/738389915401977926/1547979329294573668/TimePhoto_20260701_171903.jpg?ex=6aa56398&is=6aa41218&hm=8aa34bb2765c054795374b9e6c29ccc7ec381b2a64b2ac34a5f2539b2ecd7ce2&=&format=webp&width=1536&height=1152"
-                label="team work"
-              />
+              <Photo image="/images/work2.jpg" label="team work" />
             </div>
 
             <div
@@ -328,10 +318,7 @@ export function CareerSlide({ active }: SlideProps) {
                 borderRadius: "40% 60% 60% 40% / 70% 30% 70% 30%",
               }}
             >
-              <Photo
-                image="https://media.discordapp.net/attachments/738389915401977926/1548292739823706133/IMG-20260701-WA0091.jpg?ex=6aa6877b&is=6aa535fb&hm=c2b9164354b851234060f0e4e62be3df1a63e696c018a6c9d6a0ab413cb2b3b0&=&format=webp&width=1536&height=1152"
-                label="daily rhythm"
-              />
+              <Photo image="/images/work4.jpg" label="daily rhythm" />
             </div>
           </div>
 
@@ -348,7 +335,10 @@ export function CareerSlide({ active }: SlideProps) {
               </p>
             </div>
 
-            {/* <InfoBox label="Based in" value="Alhamdulillah, Allah" /> */}
+            <InfoBox
+              label="Deskripsi Singkat"
+              value="Alhamdulillah, Sejak 2025 kemarin, Allah berikan diri ini sebuah amanah untuk bekerja disini, menjadi Pegawai Negeri Sipil di Homebase adalah sebuah hal istimewa."
+            />
           </div>
         </div>
       </div>
@@ -362,13 +352,12 @@ function InfoBox({ label, value }: { label: string; value: string }) {
       <p className="text-[10px] md:text-xs text-[#8C5A2A] mb-1 uppercase tracking-widest font-black">
         {label}
       </p>
-      <p className="text-base md:text-lg font-black text-[#1A1612] tracking-tight uppercase leading-snug">
+      <p className="text-base md:text-md text-[#1A1612] tracking-tight leading-snug">
         {value}
       </p>
     </div>
   );
 }
-
 export function HobbySlide({
   active,
   hobbyIndex,
@@ -383,74 +372,121 @@ export function HobbySlide({
   onHobbyChange: (index: number) => void;
 }) {
   const hobby = hobbies[hobbyIndex];
+
   return (
     <SlideFrame active={active}>
-      <div className="min-h-full w-full max-w-5/7 mx-auto flex flex-col pt-24 pb-12 px-6 md:pt-12 md:pb-6 md:px-12 h-full">
+      <div className="min-h-full w-full max-w-5/7 mx-auto flex flex-col pt-24 pb-2 px-6 md:pt-12 md:pb-2 md:px-12 h-full">
+        {/* =========================
+            SECTION TITLE
+        ========================== */}
         <SectionTitle number="03" title="Hobi dan Kesukaan" />
-        <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-4 min-h-0">
-          <div className="w-full md:w-5/12 bg-[#F3E9DE] border-2 md:border-[3px] border-[#D5B794] shadow-[0_16px_40px_rgba(31,26,23,0.08)] p-4 flex flex-col overflow-hidden rounded-[24px]">
-            <div className="flex items-center justify-between mb-3 border-b border-[#D9C7AF] pb-2">
+
+        {/* =========================
+            MAIN CONTENT
+        ========================== */}
+        <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-3 min-h-0">
+          {/* =========================
+              LEFT - IMAGE SLIDER
+          ========================== */}
+          <div className="w-full md:w-5/12 bg-[#F3E9DE] border-2 md:border-[3px] border-[#D5B794] shadow-[0_16px_40px_rgba(31,26,23,0.08)] p-3 md:p-4 flex flex-col overflow-hidden rounded-[24px] min-h-0">
+            {/* IMAGE INDICATOR */}
+            <div className="flex items-center justify-between mb-3 border-b border-[#D9C7AF] pb-2 shrink-0">
               <h3 className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-[#2C241B]"></h3>
+
               <div className="flex gap-1.5">
                 {hobby.assets.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => onAssetChange(index)}
-                    className={`h-1.5 transition-all rounded-full ${assetIndex === index ? "w-4 bg-[#A97346]" : "w-1.5 bg-[#DCC6A4]"}`}
+                    className={`h-1.5 transition-all rounded-full ${
+                      assetIndex === index
+                        ? "w-4 bg-[#A97346]"
+                        : "w-1.5 bg-[#DCC6A4]"
+                    }`}
                     aria-label={`View asset ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
-            <div className="flex-1 overflow-hidden min-h-[160px] md:min-h-[250px]">
+
+            {/* IMAGE SLIDER */}
+            <div className="flex-1 overflow-hidden min-h-0">
               <div
                 className="flex h-full transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${assetIndex * 100}%)` }}
+                style={{
+                  transform: `translateX(-${assetIndex * 100}%)`,
+                }}
               >
                 {hobby.assets.map((asset) => (
-                  <div key={asset.name} className="w-full h-full shrink-0 p-1">
-                    <div
-                      className="w-full h-full bg-cover bg-center border border-[#A97346] relative flex items-center justify-center rounded-[18px]"
-                      style={imageStyle(asset.image)}
-                    >
-                      <div className="absolute inset-0 bg-[#1F1A17]/45" />
+                  <div
+                    key={asset.name}
+                    className="w-full h-full shrink-0 p-0.5"
+                  >
+                    <div className="w-full h-full relative rounded-[16px] overflow-hidden border-2 border-[#A97346] bg-[#1F1A17]">
+                      <img
+                        src={asset.image}
+                        alt={asset.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                      />
+
+                      {/* IMAGE OVERLAY */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1F1A17]/80 via-transparent to-transparent pointer-events-none" />
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <div className="w-full md:w-7/12 bg-[#F3E9DE] border-2 md:border-[3px] border-[#D5B794] p-5 md:p-8 flex flex-col overflow-hidden rounded-[24px]">
-            <div className="flex items-center gap-3 mb-4 border-b border-[#D9C7AF] pb-4">
+
+          {/* =========================
+              RIGHT - DESCRIPTION
+          ========================== */}
+          <div className="w-full md:w-7/12 bg-[#F3E9DE] border-2 md:border-[3px] border-[#D5B794] p-4 md:p-6 flex flex-col min-h-0 overflow-hidden rounded-[24px]">
+            {/* HEADER */}
+            <div className="flex items-center gap-3 mb-3 border-b border-[#D9C7AF] pb-3 shrink-0">
               {hobby.icon}
+
               <h3 className="text-xl md:text-3xl font-black text-[#1F1A17] tracking-[-0.05em]">
                 {hobby.title}
               </h3>
             </div>
-            <div className="space-y-4">
+
+            {/* SCROLLABLE DESCRIPTION */}
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1 space-y-3">
               {hobby.desc.map((item) => {
                 const [title, ...rest] = item.split(":");
+
                 return (
                   <div
                     key={item}
                     className="flex gap-3 items-start bg-[#F4F1EA] p-3 border border-[#D4C4A8]"
                   >
-                    <div className="w-3 h-3 bg-[#8C5A2A] mt-1 shrink-0" />
-                    <p className="text-xs md:text-sm font-bold text-[#2C241B]">
-                      <span className="font-black text-[#1A1612] block mb-1">
+                    {/* BULLET */}
+                    <div className="w-2.5 h-2.5 bg-[#8C5A2A] mt-1 shrink-0" />
+
+                    {/* DESCRIPTION */}
+                    <p className="text-xs md:text-sm font-bold text-[#2C241B] leading-snug">
+                      <span className="font-black text-[#1A1612] block mb-0.5">
                         {title}:
                       </span>
+
                       {rest.join(":")}
                     </p>
                   </div>
                 );
               })}
+
+              {/* =========================
+                  FAVORITE TRACKS
+              ========================== */}
               {hobby.songs && (
-                <div className="pt-4 border-t-2 border-[#D4C4A8]">
-                  <p className="text-xs font-black uppercase tracking-widest text-[#8C5A2A] mb-3">
+                <div className="pt-3 border-t-2 border-[#D4C4A8]">
+                  <p className="text-xs font-black uppercase tracking-widest text-[#8C5A2A] mb-2">
                     Favorite Tracks
                   </p>
-                  <div className="flex gap-4 overflow-visible md:overflow-x-scroll hide-scrollbar">
+
+                  <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
                     {hobby.songs.map((song) => (
                       <iframe
                         key={song.src}
@@ -468,14 +504,23 @@ export function HobbySlide({
             </div>
           </div>
         </div>
-        <div className="flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar pb-2">
+
+        {/* =========================
+            HOBBY NAVIGATION
+        ========================== */}
+        <div className="flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar pb-1 shrink-0">
           {hobbies.map((item, index) => (
             <button
               key={item.id}
               onClick={() => onHobbyChange(index)}
-              className={`flex-1 min-w-[120px] p-3 border-2 flex flex-col items-center gap-2 font-black uppercase tracking-widest ${hobbyIndex === index ? "bg-[#2C241B] text-[#F4F1EA]" : "bg-[#E8E3D9] text-[#2C241B]"}`}
+              className={`flex-1 min-w-[120px] p-3 border-2 flex flex-col items-center gap-2 font-black uppercase tracking-widest ${
+                hobbyIndex === index
+                  ? "bg-[#2C241B] text-[#F4F1EA]"
+                  : "bg-[#E8E3D9] text-[#2C241B]"
+              }`}
             >
               {item.icon}
+
               <span className="text-[10px] text-center">{item.shortTitle}</span>
             </button>
           ))}
@@ -734,7 +779,8 @@ export function ClassifiedSlide({
                 <p className="text-sm md:text-base font-medium text-[#1F1A17] leading-relaxed">
                   - "Just a regular man" mungkin adalah sebuah sebutan yang
                   tepat buat diri ini. Orang yang kaku kayak kanebo kering tapi
-                  bisa mengalir jadi orang yang bisa mencairkan suasana.
+                  bisa mengalir jadi orang yang bisa mencairkan suasana ketika
+                  sudah akrab.
                 </p>
                 <p className="text-sm md:text-base font-medium text-[#1F1A17] leading-relaxed">
                   - Pribadi yang Hidup dari keluarga yang diberikan rezeki
@@ -808,7 +854,10 @@ export function ClassifiedSlide({
               Salam Kenal!
             </h2>
             <p className="text-sm md:text-sm text-[#A97346] tracking-[-0.06em]">
-              Salam Kenal!
+              Memang masih banyak kurangnya, tapi semoga berkenan.
+            </p>
+            <p className="text-sm md:text-sm text-grey tracking-[-0.06em]">
+              Made with ❤️ by Azzamhfa.
             </p>
           </div>
         )}
@@ -858,14 +907,12 @@ export function FamilySlide({ active }: { active: boolean }) {
       desc: "Inilah keluarga ku, sebuah keluarga kecil, keluarga sederhana yang membesarkan aku dari lahir sampai saat ini. Kami semua sangat bersyukur diberikan banyak hal, seperti Pendidikan yang tinggi, Rezeki yang cukup untuk kami.",
       assets: [
         {
-          name: "Family Time",
-          image:
-            "https://media.discordapp.net/attachments/738389915401977926/1548324606878687323/IMG_20260912_202901.jpg?ex=6aa6a528&is=6aa553a8&hm=f7967714682694230b89369931805bf8f86222de7442229f80c987cf9eb55e3c&=&format=webp&width=287&height=384",
+          name: "Gathering",
+          image: "/images/fam2.jpg",
         },
         {
-          name: "Gathering",
-          image:
-            "https://media.discordapp.net/attachments/738389915401977926/1548324176815853638/IMG_20260912_202719.jpg?ex=6aa6a4c2&is=6aa55342&hm=d6c8a1aff02385ba9c736d8c1dd3c8ecaa521a0c7b428a5eb8f3e3497c8feaa9&=&format=webp&width=576&height=1024",
+          name: "Gathering2",
+          image: "/images/fam3.jpg",
         },
       ],
     },
@@ -873,7 +920,6 @@ export function FamilySlide({ active }: { active: boolean }) {
       id: "parents",
       title: "Orang Tua",
       icon: <Heart className="w-5 h-5" />,
-      // Contoh poin-poin dalam bentuk Array:
       desc: [
         "Orang yang mengusahakan yang terbaik bagi anak-anaknya sampai ditahap ini. Mengajarkan ku bagaimana menjadi pribadi yang low profile.",
         "Bapak: Seorang Guru Swasta yang saat ini diamanahi menjadi Wakil Kepala Sekolah.",
@@ -882,8 +928,7 @@ export function FamilySlide({ active }: { active: boolean }) {
       assets: [
         {
           name: "Orang Tua",
-          image:
-            "https://media.discordapp.net/attachments/738389915401977926/1548292185705947166/IMG_20260719_163422.jpg?ex=6aa686f6&is=6aa53576&hm=b917e3c6f6bd58ee629676cc1faab67e65e11ed95a04ac6e00e4a74432a7a203&=&format=webp&width=2048&height=922",
+          image: "/images/parent.jpg",
         },
       ],
     },
@@ -895,13 +940,11 @@ export function FamilySlide({ active }: { active: boolean }) {
       assets: [
         {
           name: "Momen Bersama Adik",
-          image:
-            "https://media.discordapp.net/attachments/738389915401977926/1548349677529727036/Screenshot_20260912_220832.jpg?ex=6aa6bc82&is=6aa56b02&hm=e5a8d304493a643d19e29c55a4dc84915c23eb701ef84d5ce55370b9e1e9d00b&=&format=webp&width=463&height=1024",
+          image: "/images/sis.jpg",
         },
         {
           name: "Momen Bersama Adik2",
-          image:
-            "https://media.discordapp.net/attachments/738389915401977926/1548349678113001502/IMG-20260809-WA0018.jpg?ex=6aa6bc82&is=6aa56b02&hm=2079fb56c6ce7939d54ae142464b45727df949fb40d650e3738cba5731228562&=&format=webp&width=767&height=1024",
+          image: "/images/sis2.jpg",
         },
       ],
     },
@@ -931,27 +974,29 @@ export function FamilySlide({ active }: { active: boolean }) {
 
   return (
     <SlideFrame active={active}>
-      <div className="min-h-full w-full max-w-5/7 mx-auto flex flex-col pt-20 pb-10 px-6 md:pt-10 md:pb-6 md:px-12 h-full">
+      {/* 1. Kurangi padding vertikal agar tidak sempit di layar HP */}
+      <div className="h-full w-full max-w-5/7 mx-auto flex flex-col pt-16 pb-4 px-4 md:pt-10 md:pb-2 md:px-12">
         {/* Header Title */}
-        <div className="flex items-end justify-between border-b-2 md:border-b-4 border-[#2C241B] pb-3 md:pb-4 mb-4 shrink-0">
+        <div className="flex items-end justify-between border-b-2 md:border-b-4 border-[#2C241B] pb-2 md:pb-4 mb-3 shrink-0">
           <div>
-            <p className="text-[#8C5A2A] font-bold tracking-widest uppercase text-xs md:text-sm mb-1 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Section 03 // Family Roots
+            <p className="text-[#8C5A2A] font-bold tracking-widest uppercase text-[10px] md:text-sm mb-1 flex items-center gap-1.5">
+              <Sparkles className="w-3 md:w-3.5 h-3 md:h-3.5" /> Section 03 //
+              Family Roots
             </p>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-[#1A1612] uppercase">
+            <h2 className="text-2xl md:text-5xl font-black tracking-tighter text-[#1A1612] uppercase">
               Keluarga
             </h2>
           </div>
         </div>
 
-        {/* Main Content Layout */}
-        <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-2 min-h-0">
-          {/* KIRI: Carousel Foto */}
-          <div className="w-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px]">
-            <div className="flex items-center justify-between mb-3 border-b-2 border-[#D4C4A8] pb-2 shrink-0">
+        {/* 2. Main Layout dengan min-h-0 agar flex-1 bekerja optimal di mobile */}
+        <div className="flex-1 flex flex-col md:flex-row gap-3 md:gap-6 min-h-0 overflow-hidden">
+          {/* KIRI / ATAS: Carousel Foto (Dikunci tingginya di Mobile, flex-1 di Desktop) */}
+          <div className="w-full md:w-5/12 h-[300px] md:h-auto md:flex-1 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-3 md:p-4 flex flex-col overflow-hidden relative rounded-[20px] shrink-0">
+            <div className="flex items-center justify-between mb-2 border-b-2 border-[#D4C4A8] pb-1.5 shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-[#8C5A2A] rounded-full"></div>
-                <h3 className="text-xs md:text-sm font-black uppercase tracking-widest text-[#2C241B]">
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#8C5A2A] rounded-full"></div>
+                <h3 className="text-[10px] md:text-sm font-black uppercase tracking-widest text-[#2C241B]">
                   {currentSectionData.title}
                 </h3>
               </div>
@@ -970,7 +1015,8 @@ export function FamilySlide({ active }: { active: boolean }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-hidden relative w-full h-full min-h-[180px] md:min-h-[250px] rounded-xl">
+            {/* Slider Foto menggunakan <img> asli */}
+            <div className="flex-1 overflow-hidden relative w-full rounded-[14px] border-2 border-[#8C5A2A] bg-[#1F1A17]">
               <div
                 className="flex w-full h-full transition-transform duration-700 ease-in-out"
                 style={{
@@ -980,32 +1026,31 @@ export function FamilySlide({ active }: { active: boolean }) {
                 {currentSectionData.assets.map((asset, idx) => (
                   <div
                     key={idx}
-                    className="w-full h-full shrink-0 flex items-center justify-center p-0.5"
+                    className="w-full h-full shrink-0 relative flex items-center justify-center"
                   >
-                    <div
-                      className="w-full h-full bg-[#2C241B] bg-cover bg-center border-2 border-[#8C5A2A] relative shadow-inner flex flex-col items-center justify-center rounded-lg overflow-hidden"
-                      style={{ backgroundImage: `url(${asset.image})` }}
-                    >
-                      {/* <div className="absolute inset-0 bg-[#1A1612]/20" />
-                      <span className="text-[#F4F1EA] text-[10px] md:text-xs font-bold uppercase tracking-widest bg-[#1A1612]/80 backdrop-blur-sm px-3 py-1.5 border border-[#8C5A2A] text-center z-10 rounded-md">
-                        {asset.name}
-                      </span> */}
-                    </div>
+                    <img
+                      src={asset.image}
+                      alt={asset.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center"
+                    />
+                    {/* Efek gradient tipis supaya estetik, tanpa merusak kejelasan gambar utama */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1612]/60 via-transparent to-transparent pointer-events-none" />
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* KANAN: Dropdown / Accordion Menu */}
-          <div className="w-full md:w-7/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 md:p-6 flex flex-col overflow-y-auto rounded-[20px] gap-3">
+          {/* KANAN / BAWAH: Accordion Menu (Mengambil sisa layar & bisa di-scroll internal) */}
+          <div className="w-full md:w-7/12 flex-1 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-3.5 md:p-6 flex flex-col overflow-y-auto hide-scrollbar rounded-[20px] gap-2.5 min-h-0">
             {familySections.map((section) => {
               const isOpen = openSection === section.id;
 
               return (
                 <div
                   key={section.id}
-                  className={`border-2 transition-all rounded-xl overflow-hidden ${
+                  className={`border-2 transition-all rounded-xl overflow-hidden shrink-0 ${
                     isOpen
                       ? "border-[#2C241B] bg-[#F4F1EA] shadow-[3px_3px_0px_0px_#2C241B]"
                       : "border-[#D4C4A8] bg-[#F4F1EA]/60 hover:bg-[#F4F1EA]"
@@ -1013,11 +1058,11 @@ export function FamilySlide({ active }: { active: boolean }) {
                 >
                   <button
                     onClick={() => toggleSection(section.id)}
-                    className="w-full p-3 md:p-4 flex items-center justify-between text-left transition-colors"
+                    className="w-full p-2.5 md:p-4 flex items-center justify-between text-left transition-colors"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2.5 md:gap-3">
                       <div
-                        className={`p-2 rounded-lg ${
+                        className={`p-1.5 md:p-2 rounded-lg ${
                           isOpen
                             ? "bg-[#2C241B] text-[#F4F1EA]"
                             : "bg-[#D4C4A8] text-[#2C241B]"
@@ -1025,36 +1070,34 @@ export function FamilySlide({ active }: { active: boolean }) {
                       >
                         {section.icon}
                       </div>
-                      <span className="font-black text-sm md:text-lg text-[#1A1612] uppercase tracking-tight">
+                      <span className="font-black text-xs md:text-lg text-[#1A1612] uppercase tracking-tight">
                         {section.title}
                       </span>
                     </div>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#8C5A2A] transition-transform duration-300 ${
+                      className={`w-4 h-4 md:w-5 md:h-5 text-[#8C5A2A] transition-transform duration-300 ${
                         isOpen ? "transform rotate-180" : ""
                       }`}
                     />
                   </button>
 
-                  {/* Area Konten: Cek apakah desc berupa Array atau String */}
+                  {/* Area Konten Akordion */}
                   {isOpen && (
-                    <div className="px-4 pb-4 pt-2 border-t border-[#D4C4A8]">
+                    <div className="px-3 md:px-4 pb-3 md:pb-4 pt-1 border-t border-[#D4C4A8]">
                       {Array.isArray(section.desc) ? (
-                        /* Render sebagai Poin-Poin jika berbentuk Array */
-                        <ul className="space-y-2 bg-[#E8E3D9]/50 p-3.5 rounded-lg border border-[#D4C4A8]">
+                        <ul className="space-y-1.5 bg-[#E8E3D9]/50 p-2.5 md:p-3.5 rounded-lg border border-[#D4C4A8]">
                           {section.desc.map((point, i) => (
                             <li
                               key={i}
-                              className="flex items-start gap-2 text-xs md:text-sm font-semibold text-[#2C241B] leading-relaxed"
+                              className="flex items-start gap-2 text-[11px] md:text-sm font-semibold text-[#2C241B] leading-relaxed"
                             >
-                              <span className="w-1.5 h-1.5 bg-[#8C5A2A] rounded-full mt-2 shrink-0" />
+                              <span className="w-1.5 h-1.5 bg-[#8C5A2A] rounded-full mt-1.5 shrink-0" />
                               <span>{point}</span>
                             </li>
                           ))}
                         </ul>
                       ) : (
-                        /* Render sebagai Paragraf Biasa jika berbentuk String */
-                        <p className="text-xs md:text-sm font-semibold text-[#2C241B] leading-relaxed bg-[#E8E3D9]/50 p-3.5 rounded-lg border border-[#D4C4A8]">
+                        <p className="text-[11px] md:text-sm font-semibold text-[#2C241B] leading-relaxed bg-[#E8E3D9]/50 p-2.5 md:p-3.5 rounded-lg border border-[#D4C4A8]">
                           {section.desc}
                         </p>
                       )}
@@ -1079,18 +1122,15 @@ export function SocialSlide({ active }: { active: boolean }) {
     assets: [
       {
         name: "",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1547983491033997462/IMG_20260911_215108.jpg?ex=6aa61038&is=6aa4beb8&hm=27aad9fb0dcc1e4240b491c05a94394db1723a35094670810d0c8caf45a096e6&=&format=webp&width=1280&height=960",
+        image: "/images/friend1.jpg",
       },
       {
         name: "",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1547983491550154782/IMG_20260911_215210.jpg?ex=6aa61038&is=6aa4beb8&hm=cd2af5d3630d9b183eccafa23ccc5e76ecaf25237f5ed9cc90b9acad2df8aaf3&=&format=webp&width=1280&height=960",
+        image: "/images/friend2.png",
       },
       {
         name: "",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548342832304095242/image.png?ex=6aa6b622&is=6aa564a2&hm=9402bf33ab48bcbb05081ac5b9719701241047b0690e131f06bc37b6e1783f30&=&format=webp&quality=lossless&width=767&height=1024",
+        image: "/images/friend3.jpg",
       },
     ],
     circles: [
@@ -1134,7 +1174,7 @@ export function SocialSlide({ active }: { active: boolean }) {
         {/* Main Content Layout */}
         <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-2 min-h-0">
           {/* KIRI: Carousel Foto Sosial (35% Width) */}
-          <div className="w-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px]">
+          <div className="w-full h-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px]">
             <div className="flex items-center justify-between mb-3 border-b-2 border-[#D4C4A8] pb-2 shrink-0">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-[#8C5A2A] rounded-full"></div>
@@ -1313,13 +1353,11 @@ export function ReligionSlide({ active }: SlideProps) {
     assets: [
       {
         name: "Masjid & Daily Life",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548330386126274622/IMG-20250214-WA0019.jpg?ex=6aa6aa8a&is=6aa5590a&hm=a1d91e996a083a87eb563766671c21f38a1c6fe674b33e0440707ebfe939ea71&=&format=webp&width=576&height=1024",
+        image: "/images/religion.jpg",
       },
       {
         name: "Quiet Moments",
-        image:
-          "https://media.discordapp.net/attachments/738389915401977926/1548351026321424384/image.png?ex=6aa6bdc3&is=6aa56c43&hm=cadb93f677ce9f8547eb67701f28ed3889f12f848293a4ca9f4a8e40cb79c0e0&=&format=webp&quality=lossless&width=768&height=1024",
+        image: "/images/religion2.png",
       },
     ],
     points: [
@@ -1363,9 +1401,9 @@ export function ReligionSlide({ active }: SlideProps) {
         </div>
 
         {/* Main Content Layout */}
-        <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-2 min-h-0">
+        <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-6 mb-2 min-h-0 max-h-9/10">
           {/* KIRI: Carousel Foto (35% Width) */}
-          <div className="w-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px]">
+          <div className="w-full h-full md:w-5/12 bg-[#E8E3D9] border-2 md:border-4 border-[#5C4C3C] shadow-[4px_4px_0px_0px_#2C241B] p-4 flex flex-col overflow-hidden relative rounded-[20px]">
             <div className="flex items-center justify-between mb-3 border-b-2 border-[#D4C4A8] pb-2 shrink-0">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-[#8C5A2A] rounded-full"></div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Lock } from "lucide-react";
 
 export function SiteHeader({
   currentSlide,
@@ -10,7 +10,7 @@ export function SiteHeader({
   totalSlides: number;
 }) {
   return (
-    <header className="absolute top-0 w-full z-50 bg-[#EBE6D9]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none border-b-2 md:border-b-0 border-[#2C241B]/10">
+    <header className="mobile-safe-header absolute top-0 w-full z-50 bg-[#EBE6D9]/90 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none border-b-2 md:border-b-0 border-[#2C241B]/10">
       <div className="h-1.5 md:h-2 w-full bg-[#D4C4A8]">
         <div
           className="h-full bg-[#8C5A2A] transition-all duration-500"
@@ -43,25 +43,36 @@ export function SiteFooter({
   onNext: () => void;
   onSelect: (index: number) => void;
 }) {
-  const nextDisabled =
-    currentSlide === totalSlides - 1 || (currentSlide === 6 && !unlocked);
+  // Index slide terkunci dimulai dari index 5 (setelah 5 slide publik)
+  const isLastUnlockedSlide = !unlocked && currentSlide === 5;
+  const nextDisabled = currentSlide === totalSlides - 1 || isLastUnlockedSlide;
 
   return (
-    <footer className="w-full p-4 md:p-6 md:px-10 border-t-2 md:border-t-4 border-[#2C241B] bg-[#E8E3D9] flex justify-between items-center z-50">
+    <footer className="w-full px-4 py-3 md:px-10 md:py-4 border-t-2 md:border-t-4 border-[#2C241B] bg-[#E8E3D9] flex justify-between items-center z-50 shrink-0">
       {/* Tombol Previous */}
       <button
         onClick={onPrevious}
         disabled={currentSlide === 0}
-        className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 font-black text-xs uppercase tracking-widest rounded-full border-2 border-[#2C241B] bg-[#F4F1EA] text-[#1A1612] shadow-[2px_2px_0px_0px_#2C241B] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-none"
+        className="flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-2.5 font-black text-xs uppercase tracking-wider rounded-full border-2 border-[#2C241B] bg-[#F4F1EA] text-[#1A1612] shadow-[2px_2px_0px_0px_#2C241B] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-none"
       >
         <ChevronLeft size={16} />
-        Prev
+        <span className="text-[11px] md:text-xs">Prev</span>
       </button>
 
-      {/* Indikator Slide (Pagination Dots) */}
-      <div className="flex items-center gap-2">
+      {/* Indikator Mobile (Tampilan Angka Ringkas) */}
+      <div className="flex md:hidden items-center gap-1.5 px-3 py-1 bg-[#F4F1EA] rounded-full border border-[#2C241B] text-xs font-black text-[#2C241B]">
+        <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+        <span className="text-[#8C5A2A]">/</span>
+        <span className="text-[#8C5A2A]">
+          {String(totalSlides).padStart(2, "0")}
+        </span>
+      </div>
+
+      {/* Indikator Desktop / Tablet (Pagination Dots) */}
+      <div className="hidden md:flex items-center gap-2">
         {Array.from({ length: totalSlides }, (_, index) => {
-          const isLocked = !unlocked && index > 6;
+          // Slide index >= 5 terkunci jika unlocked bernilai false
+          const isLocked = !unlocked && index >= 5;
           const isActive = currentSlide === index;
 
           return (
@@ -86,10 +97,14 @@ export function SiteFooter({
       <button
         onClick={onNext}
         disabled={nextDisabled}
-        className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 font-black text-xs uppercase tracking-widest rounded-full border-2 border-[#2C241B] bg-[#2C241B] text-[#F4F1EA] shadow-[2px_2px_0px_0px_#8C5A2A] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-none"
+        className="flex items-center gap-1.5 px-3 py-2 md:px-5 md:py-2.5 font-black text-xs uppercase tracking-wider rounded-full border-2 border-[#2C241B] bg-[#2C241B] text-[#F4F1EA] shadow-[2px_2px_0px_0px_#8C5A2A] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-30 disabled:hover:translate-y-0 disabled:shadow-none"
       >
-        Next
-        <ChevronRight size={16} />
+        <span className="text-[11px] md:text-xs">Next</span>
+        {isLastUnlockedSlide ? (
+          <Lock size={14} className="text-[#D6B793]" />
+        ) : (
+          <ChevronRight size={16} />
+        )}
       </button>
     </footer>
   );
