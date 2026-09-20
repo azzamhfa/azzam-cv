@@ -663,6 +663,9 @@ export function ReviewSlide({ active }: SlideProps) {
             <div>
               <Quote className="mb-4 text-[#A97346] w-8 h-8" />
               <p className="text-base md:text-lg font-black text-[#1F1A17] tracking-tight leading-snug mb-6">
+                &quot;Kamu begitu pure dan lembut, jadi hati-hati ya.&quot;
+              </p>
+              <p className="text-base md:text-lg font-black text-[#1F1A17] tracking-tight leading-snug mb-6">
                 &quot;Kata siapa kamu nggak belajar? Kamu itu selalu belajar
                 tapi dengan cara yang berbeda dari murid-murid ku yang
                 lain.&quot;
@@ -858,6 +861,9 @@ export function ClassifiedSlide({
             </p>
             <p className="text-sm md:text-sm text-grey tracking-[-0.06em]">
               Made with ❤️ by Azzamhfa.
+            </p>
+            <p className="text-xs md:text-xs text-grey tracking-[-0.06em] opacity-50">
+              If he sends you this, he has initiated failsafe.
             </p>
           </div>
         )}
