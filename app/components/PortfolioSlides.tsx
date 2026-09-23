@@ -807,6 +807,16 @@ export function ClassifiedSlide({
                 </div>
                 <div className="flex items-start gap-2.5 bg-[#F4FDF7] p-2.5 my-2 rounded-xl border border-[#C5E1A5]">
                   <div className="p-1 bg-[#E8F5E9] text-[#2E7D32] rounded-md shrink-0 mt-0.5">
+                    <Heart className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs md:text-sm font-bold text-[#1F1A17] leading-snug">
+                      Great in Act-of-Service and Word of Affirmation
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 bg-[#F4FDF7] p-2.5 my-2 rounded-xl border border-[#C5E1A5]">
+                  <div className="p-1 bg-[#E8F5E9] text-[#2E7D32] rounded-md shrink-0 mt-0.5">
                     <CigaretteOff className="w-4 h-4" />
                   </div>
                   <div>
