@@ -17,7 +17,79 @@ import {
   ReligionSlide,
 } from "./components/PortfolioSlides";
 
-export default function StrangerCard() {
+const MAINTENANCE_MODE = true;
+
+function MaintenancePage() {
+  const [notificationStatus, setNotificationStatus] = useState<
+    "sending" | "sent" | "failed"
+  >("sending");
+
+  useEffect(() => {
+    let isActive = true;
+
+    fetch("/api/notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "maintenance_page_opened" }),
+    })
+      .then((response) => {
+        if (!response.ok && response.status !== 429) {
+          throw new Error(`Notification failed with status ${response.status}.`);
+        }
+        if (isActive) setNotificationStatus("sent");
+      })
+      .catch((error: unknown) => {
+        console.error("Could not send the maintenance page notification.", error);
+        if (isActive) setNotificationStatus("failed");
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
+  return (
+    <main className="flex min-h-screen items-center justify-center bg-[#F7F2EA] px-6 py-12 text-[#1F1A17]">
+      <article className="w-full max-w-3xl border-4 border-[#2C241B] bg-[#EBE6D9] p-8 shadow-[8px_8px_0px_0px_#2C241B] md:p-12">
+        <p className="mb-5 text-xs font-black uppercase tracking-[0.2em] text-[#8C5A2A]">
+          Restricted access
+        </p>
+        <h1 className="mb-8 text-3xl font-black leading-tight md:text-5xl">
+          Oh sorry, he&apos;s currently closing his door and still recovering
+          his state.
+        </h1>
+        <div className="space-y-5 text-base leading-relaxed md:text-lg">
+          <p>
+            You opened this page. He didn&apos;t expect you would open this page
+            again, so he closed it. Are you curious about him? You can contact
+            him directly.
+          </p>
+          <p>
+            He has currently closed his <code>door</code> and is still
+            recovering from his horrible state.
+          </p>
+          {notificationStatus === "sent" ? (
+            <p>
+              Oh, by the way, this page has already sent a notification to him
+              that someone with this link has opened it again. Since this link
+              was only shared directly with you, he gets notified whenever
+              it&apos;s opened. Please note that he has already closed this
+              page.
+            </p>
+          ) : (
+            <p aria-live="polite">
+              {notificationStatus === "sending"
+                ? "This page is sending him a notification that someone opened this link."
+                : "This page could not send him a notification. Please try again later."}
+            </p>
+          )}
+        </div>
+      </article>
+    </main>
+  );
+}
+
+function PortfolioPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   // Default totalSlides adalah 6 (Index 0 sampai 5: Basics, Career, Hobby, Audit, Review, Lock)
   const [totalSlides, setTotalSlides] = useState(5);
@@ -146,4 +218,8 @@ export default function StrangerCard() {
       />
     </main>
   );
+}
+
+export default function StrangerCard() {
+  return MAINTENANCE_MODE ? <MaintenancePage /> : <PortfolioPage />;
 }

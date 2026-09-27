@@ -46,3 +46,7 @@ The unlock notification uses a server-side route at `/api/notify` and the [Resen
 5. Redeploy the project. Keep `.env.local` out of git and never prefix these variables with `NEXT_PUBLIC_`.
 
 `NOTIFICATION_FROM_EMAIL` must use a verified Resend domain. During local testing, Resend's onboarding sender can be used according to its current account restrictions.
+
+### Restricted maintenance mode
+
+Set `MAINTENANCE_MODE` in `app/page.tsx` to `true` to show the maintenance page instead of the portfolio. Opening the page sends a notification through the same Resend configuration above. Set it to `false` to show the portfolio again.
