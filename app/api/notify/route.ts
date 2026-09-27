@@ -38,10 +38,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON." }, { status: 400 });
   }
 
-  if (body.event !== "secret_pages_opened") {
+  if (
+    body.event !== "secret_pages_opened" &&
+    body.event !== "maintenance_page_opened"
+  ) {
     return NextResponse.json({ error: "Invalid event." }, { status: 400 });
   }
 
+  const isMaintenancePage = body.event === "maintenance_page_opened";
   recentRequests.set(clientKey, Date.now());
 
   try {
@@ -54,8 +58,12 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         from: sender,
         to: [recipient],
-        subject: "Someone opened the restricted portfolio files",
-        text: "A visitor opened the restricted files on your portfolio.",
+        subject: isMaintenancePage
+          ? "Someone reopened your restricted portfolio page"
+          : "Someone opened the restricted portfolio files",
+        text: isMaintenancePage
+          ? "Someone opened your restricted maintenance page."
+          : "A visitor opened the restricted files on your portfolio.",
       }),
     });
 
